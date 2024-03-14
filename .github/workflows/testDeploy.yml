@@ -1,0 +1,30 @@
+name: Lint Test Deploy
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get Code
+              uses: actions/checkout@v3
+            - name: install dependencencies
+              run: npm ci
+            - name: run lint
+              run: npm lint
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get Code
+              uses: actions/checkout@v3
+            - name: install dependencencies
+              run: npm ci
+            - name: run test
+              run: npm test
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get Code
+              uses: actions/checkout@v3
+            - name: install dependencencies
+              run: npm ci
+            - name: run build
+              run: npm run build
