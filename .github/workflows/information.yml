@@ -1,11 +1,16 @@
 name: Informationen
 on: 
     pull_request:
-        types:
+        types: # event-type
             - opened
             - reopened
     workflow_dispatch:
-    issues:
+    push: 
+        branches: # event-filter
+            - master
+            - 'dev*' # der stern funktioniert im klassischem sinne einer reg
+        paths:
+            - '.github/workflows/*'
 jobs:
     inform:
         runs-on: ubuntu-latest
