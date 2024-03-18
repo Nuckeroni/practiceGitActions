@@ -1,5 +1,11 @@
 name: Informationen
-on: issues
+on: 
+    pull_request:
+        types:
+            - opened
+            - reopened
+    workflow_dispatch:
+    issues:
 jobs:
     inform:
         runs-on: ubuntu-latest
